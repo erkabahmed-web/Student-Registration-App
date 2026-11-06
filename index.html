@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Professional student registration and management dashboard built with HTML, CSS and JavaScript."
+    />
+    <title>Erkab Student Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+     <link rel="stylesheet" href="assets/css/style.css" /> 
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+        <div class="brand" aria-label="Organization logo and name">
+          <div class="brand-mark">ER</div>
+          <div class="brand-text">
+            <strong>Erkab Learning</strong>
+            <span>Student Hub</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <button class="nav-item active" type="button" data-target="dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-8.5Z"/></svg>
+            <span>Dashboard</span>
+          </button>
+          <button class="nav-item" type="button" data-target="students">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 1a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0 2c-2.67 0-8 1.34-8 4v1h10.5A6.49 6.49 0 0 1 8 14Zm8 0c2.22 0 5 1.12 6 3.07V18H22v-1a5 5 0 0 0-5-5Z"/></svg>
+            <span>Students</span>
+          </button>
+          <button class="nav-item" type="button" data-target="register">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/></svg>
+            <span>Register Student</span>
+          </button>
+          <button class="nav-item" type="button" data-target="application-info">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-6h2Zm0-8h-2V7h2Z"/></svg>
+            <span>Application Info</span>
+          </button>
+          <button class="nav-item" type="button" data-target="about">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 17h2v-6h-2Zm1-12A10 10 0 1 0 22 12 10 10 0 0 0 12 5Zm0 17a7 7 0 1 1 7-7 7 7 0 0 1-7 7ZM11 9h2V7h-2Z"/></svg>
+            <span>About Project</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Academic operations</p>
+          <strong>v1.0 Demo</strong>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div>
+              <p class="eyebrow">Welcome back</p>
+              <h2>Dashboard</h2>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="date-card" aria-live="polite">
+              <span class="date-label">Today</span>
+              <strong id="currentDate">--</strong>
+            </div>
+            <button class="primary-btn" type="button" id="newStudentBtn">Register Student</button>
+          </div>
+        </header>
+
+        <section class="stats-grid" id="dashboard" aria-label="Student statistics summary">
+          <article class="stat-card primary">
+            <div class="stat-icon"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 1a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0 2c-2.67 0-8 1.34-8 4v1h10.5A6.49 6.49 0 0 1 8 14Zm8 0c2.22 0 5 1.12 6 3.07V18H22v-1a5 5 0 0 0-5-5Z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span>Total Students</span>
+              <strong id="totalStudents">0</strong>
+            </div>
+          </article>
+
+          <article class="stat-card secondary">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5Zm2.5-.5a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5Zm3 2h7v2h-7Zm0 4h9v2h-9Zm0 4h6v2h-6Z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span>Total Departments</span>
+              <strong id="totalDepartments">0</strong>
+            </div>
+          </article>
+
+          <article class="stat-card accent">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span>New Registrations</span>
+              <strong id="newRegistrations">0</strong>
+            </div>
+          </article>
+
+          <article class="stat-card success">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm-1 15-4-4 1.5-1.5L11 14.2l5.5-5.7L18 10l-7 7Z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span>Active Students</span>
+              <strong id="activeStudents">0</strong>
+            </div>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <section class="panel form-panel" id="register" aria-labelledby="formTitle">
+            <div class="panel-header">
+              <h3 id="formTitle">Register New Student</h3>
+              <button class="secondary-btn hidden" type="button" id="cancelEditBtn">Cancel</button>
+            </div>
+
+            <form id="studentForm" novalidate>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="studentId">Student ID</label>
+                  <input id="studentId" name="studentId" type="text" readonly />
+                </div>
+
+                <div class="field field-wide">
+                  <label for="fullName">Full Name</label>
+                  <input id="fullName" name="fullName" type="text" placeholder="e.g. Aisha Yusuf" maxlength="80" />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email Address</label>
+                  <input id="email" name="email" type="email" placeholder="student@example.com" maxlength="100" />
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone Number</label>
+                  <input id="phone" name="phone" type="tel" placeholder="+234 ..." maxlength="20" />
+                </div>
+
+                <div class="field">
+                  <label for="gender">Gender</label>
+                  <select id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="department">Department</label>
+                  <select id="department" name="department">
+                    <option value="">Select department</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Management">Management</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="registrationDate">Registration Date</label>
+                  <input id="registrationDate" name="registrationDate" type="date" />
+                </div>
+
+                <div class="field">
+                  <label for="status">Student Status</label>
+                  <select id="status" name="status">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="primary-btn" type="submit" id="submitBtn">Add Student</button>
+                <button class="neutral-btn" type="button" id="resetFormBtn">Reset</button>
+              </div>
+
+              <div id="formError" class="form-message" role="alert" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <section class="panel directory-panel" id="students" aria-labelledby="directoryTitle">
+            <div class="panel-header">
+              <h3 id="directoryTitle">Student Directory</h3>
+            </div>
+
+            <div class="toolbar" aria-label="Search and filter students">
+              <div class="search-field">
+                <label class="sr-only" for="searchInput">Search students</label>
+                <input id="searchInput" type="search" placeholder="Search by name, email, or ID" />
+              </div>
+
+              <div class="filter-group">
+                <label class="sr-only" for="departmentFilter">Filter by department</label>
+                <select id="departmentFilter">
+                  <option value="">All Departments</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Software Engineering">Software Engineering</option>
+                  <option value="Accounting">Accounting</option>
+                  <option value="Management">Management</option>
+                  <option value="Business Administration">Business Administration</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label class="sr-only" for="statusFilter">Filter by status</label>
+                <select id="statusFilter">
+                  <option value="">All Statuses</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+
+              <button class="neutral-btn" type="button" id="clearFiltersBtn">Clear Filters</button>
+            </div>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Department</th>
+                    <th>Gender</th>
+                    <th>Registration Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+              </table>
+            </div>
+
+            <div id="emptyState" class="empty-state" hidden>
+              <div class="empty-icon" aria-hidden="true">📚</div>
+              <h4>No students found</h4>
+              <p>Start by registering your first student record.</p>
+              <button class="primary-btn" type="button" id="emptyStateBtn">Register Your First Student</button>
+            </div>
+          </section>
+        </section>
+
+        <section class="panel application-info-panel" id="application-info" aria-labelledby="applicationInfoTitle">
+          <div class="panel-header">
+            <h3 id="applicationInfoTitle">Application Info</h3>
+          </div>
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Application Details</h4>
+              <dl class="application-details">
+                <div>
+                  <dt>Application</dt>
+                  <dd>Erkab Student Management</dd>
+                </div>
+                <div>
+                  <dt>Version</dt>
+                  <dd>1.0 Demo</dd>
+                </div>
+                <div>
+                  <dt>Technology</dt>
+                  <dd>HTML5, CSS3 and Vanilla JavaScript</dd>
+                </div>
+                <div>
+                  <dt>Data storage</dt>
+                  <dd>Browser LocalStorage</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="info-card">
+              <h4>Using This Application</h4>
+              <p>
+                Register students, find records with search and filters, and view, edit or remove student information
+                from the Students directory. Your records are saved in this browser and remain available after refresh.
+              </p>
+              <p class="application-info-note">
+                This is a front-end demonstration. Data is stored locally in the current browser and is not synced to a server.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel info-panel" id="about" aria-labelledby="aboutTitle">
+          <div class="panel-header">
+            <h3 id="aboutTitle">About Project</h3>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Project Goal</h4>
+              <p>
+                This dashboard demonstrates a beginner-friendly student registration system for educational institutions.
+                It highlights clean JavaScript logic, browser storage and a professional interface.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <h4>Key Features</h4>
+              <ul>
+                <li>Student registration and validation</li>
+                <li>Search, filters and dynamic dashboard statistics</li>
+                <li>Editable and deletable records with local persistence</li>
+                <li>Responsive, accessible and mobile-friendly layout</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <div id="studentModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="studentModalTitle">
+      <div class="modal-backdrop" data-close="modal"></div>
+      <div class="modal-card">
+        <button class="modal-close" type="button" aria-label="Close student details" data-close="modal">×</button>
+        <h3 id="studentModalTitle">Student Details</h3>
+        <div id="studentDetailContent" class="detail-grid"></div>
+      </div>
+    </div>
+
+    <div id="notification" class="notification" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="assets/js/app.js" defer></script>
+  </body>
+</html>
